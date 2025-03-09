@@ -11,6 +11,8 @@ const mockFetchResponse = Promise.resolve(
   }
 );
 
+// se puede simular una llamada al metodo fetch usando un funcion que devuelva
+// una promesa ya resuelta con la informacion (ficticia) que solicitamos
 const mockFetch = {
   fetch: () => Promise.resolve(mockFetchResponse)
 }
@@ -18,6 +20,7 @@ const mockFetch = {
 // A mock of the property this.data from the class Advanced
 const data = {};
 
+// se puede testear que una clase ha sido instanciada correctamente
 test('ensure the class has been setup properly', () => {
   const sut = new Sut(mockFetch.fetch); // New instance of the class, keeping this test independent
   expect(sut).toEqual({ 'ajax': mockFetch.fetch, data });
